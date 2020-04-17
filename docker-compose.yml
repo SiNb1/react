@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  react:
+    stdin_open: true
+    tty: true
+    build:
+      context: ./
+      dockerfile: ./docker/nodejs/dev/Dockerfile
+    container_name: "react"
+    volumes:
+      - type: bind
+        source: ./
+        target: /usr/src/app
+    ports:
+      - 8000:3000
